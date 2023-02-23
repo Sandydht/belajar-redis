@@ -40,7 +40,7 @@
 - Redis CLI adalah aplikasi command line untuk client, dimana digunakan untuk berkomunikasi dengan redis server
 
 ## Konek ke Redis Server via Redis CLI
-- redis-cli -h <host> -p <port>
+- redis-cli -h host -p port
 
 ## Referensi
 - https://redis.io/
