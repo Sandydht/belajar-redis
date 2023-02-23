@@ -1,0 +1,15 @@
+# Saat menjalankan redis, redis tidak butuh file konfigurasi
+# Namun jika tidak menggunakan file konfigurasi, redis akan berjalan menggunakan konfigurasi default
+# Ada baiknya kita membuat file konfigurasi agar pengaturannya bisa diubah
+# https://github.com/antirez/redis/blob/6.0/redis.conf
+
+services:
+  redis: 
+    container_name: redis
+    image: redis:6
+    command: redis-server /usr/local/etc/redis/redis.conf
+    ports:
+      - 6379:6379
+    volumes:
+      - ./config/redis.conf:/usr/local/etc/redis/redis.conf
+    
