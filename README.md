@@ -93,7 +93,7 @@
 - setex key seconds value -> Set the value and expiration of a key
 - ttl key -> Get the time to live for a key
 
-## Increment && Decrement
+## Increment & Decrement
 - Operasi increment & decrement sekilas sangat mudah dilakukan, hanya tinggal mengupdate data yang di redis dengan data baru (data lama ditambah 1)
 - Namun jika operasi dilakukan secara paralel dan dalam waktu yang sangat cepat, hal ini bisa memungkinkan race condition
 - Untungnya redis memiliki operasi untuk melakukan increment & decrement
@@ -117,8 +117,6 @@
 ## Operasi Flush
 - flushdb -> Remove all keys from the current database
 - flushall -> Remove all keys from all databases
-
-
 
 # Referensi
 - https://redis.io/
