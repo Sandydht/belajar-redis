@@ -118,6 +118,17 @@
 - flushdb -> Remove all keys from the current database
 - flushall -> Remove all keys from all databases
 
+## Pipeline
+- Perintah yang dikirim dari client ke server redis menggunakan Request/Response protocol
+- Artinya setiap request yang dikirim ke server redis, akan di respon oleh redis secara langsung
+- Kadang ada kebutuhan untuk mengirim data ke redis dalam jumlah besar, misal ketika ada kasus memindahkan data dari mysql ke redis
+- Jika kita mengirim satu persatu datanya, maka akan butuh waktu lama untuk selesai
+- Redis mendukung operasi bulk via pipeline, dimana kita bisa mengirim beberapa perintah sekaligus dalam satu request
+- Namun perlu diketahui, server redis tidak akan membalas tiap perintah yang dikirim via pipeline
+
+## Operasi Pipeline Menggunakan Redis CLI
+- redis-cli --pipe
+
 # Referensi
 - https://redis.io/
 - https://www.youtube.com/watch?v=YIBDd-nG3hc&list=PL-CtdCApEFH-7hBhz1Q-4rKIQntJoBNX3
