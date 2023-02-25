@@ -129,6 +129,33 @@
 ## Operasi Pipeline Menggunakan Redis CLI
 - redis-cli --pipe
 
+## Transaction
+- Seperti pada database relational, redis juga mendukung transaction
+- Proses transaction adalah proses dimana kita mengirimkan beberapa perintah, dan perintah tersebut akan dianggap sukses jika semua perintah sukses, jika gagal maka semua perintah harus dibatalkan
+
+## Operasi Transaction
+- multi -> Mark the start of transaction block
+- exec -> Execute all commands issued after MULTI
+- discard -> Discard all commands issued after MULTI
+
+## Monitor
+- Kadang ada kasus kita ingin mendebug aplikasi saat berkomunikasi dengan redis
+- Redis memiliki fitur monitor, yaitu fitur untuk memonitor semua request yang masuk ke redis server
+- Dengan fitur ini kita bisa mudah mendebug jika ternyata ada perintah yang salah yang dikirim oleh aplikasi kita ke server redis
+
+## Operasi Monitor
+- monitor -> Listen for all requests received by the server in real time
+
+## Server Information
+- Kadang kita butuh mendapatkan informasi dan statistik data redis server
+- Seperti jumlah memory yang terpakai, konfigurasi dan lain - lain
+- Redis memiliki fitur ini, sehingga kita sangat mudah untuk mendapatkan informasi server dan memonitornya
+
+## Operasi Server Information
+- info -> Get information and statistics about the server
+- config help -> See config command information
+- slowlog help -> See slowlog command information
+
 # Referensi
 - https://redis.io/
 - https://www.youtube.com/watch?v=YIBDd-nG3hc&list=PL-CtdCApEFH-7hBhz1Q-4rKIQntJoBNX3
