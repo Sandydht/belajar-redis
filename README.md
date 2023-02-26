@@ -156,6 +156,24 @@
 - config help -> See config command information
 - slowlog help -> See slowlog command information
 
+## Client Connection
+- Redis menyimpan semua informasi client di server
+- Hal ini memudahkan kita untuk melihat daftar client, dan juga mengecek jika ada anomali, seperti terlalu banyak koneksi client ke redis
+
+## Operasi Client Information
+- client list -> Get the list of client connections
+- client id -> Returns the client ID for the current connection
+- client kill ip:port -> Kill the connection of a client
+
+## Security
+- Secara default, ketika kita menyalakan redis server, redis server akan mendengarkan request dari semua network interface. Ini sangat berbahaya, karena bisa jadi redis terekspos secara public
+- Namun, redis punya second layer untuk pengecekan koneksi, yaitu mode protected, secara default mode protectednya aktif, artinya walaupun redis bisa diakses dari manapun, tapi redis hanya mau menerima request dari 127.0.0.1 (localhost)
+
+## Authentication
+- Authentication adalah proses verifikasi identitas untuk memastikan bahwa yang mengakses adalah identitas yang benar
+- Redis memiliki fitur authentication, dan kita bisa menambahkannya di file konfigurasi di server redis
+- Namun perlu diingat, proses authentication di redis itu sangat cepat, jadi pastikan gunakan password sepanjang mungkin agar tidak mudah untuk di brute force
+
 # Referensi
 - https://redis.io/
 - https://www.youtube.com/watch?v=YIBDd-nG3hc&list=PL-CtdCApEFH-7hBhz1Q-4rKIQntJoBNX3
