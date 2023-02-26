@@ -174,6 +174,37 @@
 - Redis memiliki fitur authentication, dan kita bisa menambahkannya di file konfigurasi di server redis
 - Namun perlu diingat, proses authentication di redis itu sangat cepat, jadi pastikan gunakan password sepanjang mungkin agar tidak mudah untuk di brute force
 
+## Authorization
+- Authorization adalah proses memberi hak akses terhadap identitas yang telah berhasil melewati proses authentication
+- Redis mendukung hal ini, jadi kita bisa membatasi hak akses apa saja yang bisa dilakukan oleh identitas yang kita buat
+- https://redis.io/topics/acl
+- https://redis.io/commands/acl-cat
+
+## Persistence
+- Media penyimpanan utama redis adalah di memory
+- Namun kita bisa menyimpan data di disk jika kita mau
+- Namun perlu diingat proses penyimpanan data di disk redis tidak realtime, dia dilakukan secara scheduler dengan konfigurasi tertentu
+- Jadi jangan jadikan redis sebagai penyimpanan persistence, gunakan redis sebagai database untuk membantu database persistence lainnya
+
+## Operasi Persistence
+- save -> Synchronously save the dataset to disk
+- bgsave -> Asynchronously save the dataset to disk
+
+## Ketika Memory Redis Penuh
+- Ketika memory redis penuh, maka redis secara default akan mereject semua request penyimpanan data
+- Hal ini mungkin menjadi masalah ketika kita hanya menggunakan redis sebagai cache untuk media penyimpanan sementara
+- Kadang akan sangat berguna jika memory penuh, redis bisa secara otomatis menghapus data yang sudah jarang digunakan
+
+## Eviction
+- Redis mendukung fitur eviction (menghapus data lama, dan menerima data baru)
+- Namun untuk mengaktifkan fitur ini, kita perlu memberitahu redis, maximum memory yang boleh digunakan, dan bagaimana strategi untuk melakukan eviction nya
+- https://redis.io/topics/lru-cache
+
+## Materi Selanjutnya yang Bisa Dipelajari
+- Redis Collection
+- Redis PubSub
+- Redis Scalability
+
 # Referensi
 - https://redis.io/
 - https://www.youtube.com/watch?v=YIBDd-nG3hc&list=PL-CtdCApEFH-7hBhz1Q-4rKIQntJoBNX3
